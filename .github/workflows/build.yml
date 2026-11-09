@@ -1,0 +1,26 @@
+name: Build 44vocal
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release --parallel
+
+      # Se sube la carpeta VST3 completa: el .zip que descargas trae adentro
+      # la carpeta "44vocal.vst3", lista para copiar a C:\Program Files\Common Files\VST3\
+      - name: Upload VST3
+        uses: actions/upload-artifact@v4
+        with:
+          name: 44vocal-VST3
+          path: build/Vocal44_artefacts/Release/VST3
+          if-no-files-found: error
