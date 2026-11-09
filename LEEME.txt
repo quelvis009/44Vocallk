@@ -1,0 +1,39 @@
+44VOCAL - Plugin VST3 para mezclar voces (Keywyll)
+==================================================
+
+QUE TRAE
+- Ecualizador de 4 bandas (graves, medios, presencia, agudos): frecuencia + ganancia
+- Compresor: threshold, ratio, ataque, release, gain
+- De-esser: frecuencia, umbral, reduccion
+- Saturacion: drive, tono, mezcla
+- Salida: aire y volumen de salida
+- 10 presets (flechas < > arriba)
+- Pantalla de LECTURA: al tocar o pasar el mouse por una perilla muestra su valor
+- Sello 44 MUSIK GROUP animado
+
+COMO USAR LAS PERILLAS
+- Clic y arrastrar arriba/abajo (o rueda del mouse) para cambiar el valor
+- Doble clic: vuelve al valor por defecto
+
+ESTRUCTURA DE ARCHIVOS (exacta)
+  CMakeLists.txt
+  LEEME.txt
+  .github/workflows/build.yml
+  Source/Dsp.h
+  Source/PluginProcessor.h
+  Source/PluginProcessor.cpp
+  Source/PluginEditor.h
+  Source/PluginEditor.cpp
+
+COMPILAR EN GITHUB
+1. Crea un repositorio NUEVO (o borra todos los archivos del anterior).
+2. Sube estos archivos respetando las carpetas.
+   El build.yml debe quedar en .github/workflows/build.yml
+3. Al hacer commit, ve a la pestana Actions -> "Build 44vocal".
+   Si no arranca solo: Run workflow.
+4. Cuando salga el check verde, abre esa ejecucion y descarga el artifact
+   "44vocal-VST3" (viene en .zip). Descomprimelo: adentro esta la carpeta
+   "44vocal.vst3".
+5. Copia la carpeta 44vocal.vst3 a:
+   C:\Program Files\Common Files\VST3\
+   (sobrescribe la version vieja) y reescanea plugins en tu programa.
